@@ -1,76 +1,64 @@
 package rec_Program;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class QuickSort {
 	
-	// method to find the partition position
 	  static int partition(int array[], int low, int high) 
 	  {
-	    
-	    // choose the rightmost element as pivot
+	   
 	    int pivot = array[high];
 	    
-	    // pointer for greater element
 	    int i = (low - 1);
 
-	    // traverse through all elements
-	    // compare each element with pivot
-	    for (int j = low; j < high; j++) {
-	      if (array[j] <= pivot) {
-
-	        // if element smaller than pivot is found
-	        // swap it with the greater element pointed by i
+	    for (int j = low; j < high; j++)
+	    {
+	      if (array[j] <= pivot)
+	      {
 	        i++;
-
-	        // swapping element at i with element at j
 	        int temp = array[i];
 	        array[i] = array[j];
 	        array[j] = temp;
 	      }
 
 	    }
-
-	    // swapt the pivot element with the greater element specified by i
 	    int temp = array[i + 1];
 	    array[i + 1] = array[high];
 	    array[high] = temp;
 
-	    // return the position from where partition is done
 	    return (i + 1);
 	  }
 	  
 	  static void quickSort(int array[], int low, int high) {
-		    if (low < high) {
+		    if (low < high) 
+		    {
 
-		      // find pivot element such that
-		      // elements smaller than pivot are on the left
-		      // elements greater than pivot are on the right
-		      int pi = partition(array, low, high);
-		      
-		      // recursive call on the left of pivot
-		      quickSort(array, low, pi - 1);
+		      int p = partition(array, low, high);
+		      quickSort(array, low, p - 1);
 
-		      // recursive call on the right of pivot
-		      quickSort(array, pi + 1, high);
+		      quickSort(array, p + 1, high);
 		    }
 		  }
 	  
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter the size of array");
+			int n = sc.nextInt();
+			 int[] array = new int[n];
+			    System.out.println("Enter the elements of the Unsorted Array");
+			    for(int i = 0 ; i < n ; i++)
+			    {
+			    	array[i] = sc.nextInt();
+			    }
+			    System.out.println("Unsorted Array");
+			    System.out.println(Arrays.toString(array));
+			    
+			    quickSort(array, 0, n - 1);
 	
-		 int[] data = { 8, 7, 2, 1, 0, 9, 6 };
-		    System.out.println("Unsorted Array");
-		    System.out.println(Arrays.toString(data));
-
-		    int size = data.length;
-		    
-		    quickSort(data, 0, size - 1);
-
-		    System.out.println("Sorted Array in Ascending Order ");
-		    System.out.println(Arrays.toString(data));
+			    System.out.println("Sorted Array in Ascending Order ");
+			    System.out.println(Arrays.toString(array));
 	}
 
 }
