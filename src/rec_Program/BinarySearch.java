@@ -36,11 +36,11 @@ public class BinarySearch {
 		 
 		 Scanner sc = new Scanner(System.in);
 		 
-		 System.out.println("Enter the Size of Array");
+		 System.out.println("Enter the Size of Array : ");
 		 int n = sc.nextInt();
 		 int[] array = new int[n];
 		 
-		 System.out.println("Enter the elements of Array");
+		 System.out.println("Enter the elements of Array : ");
 		 for(int i=0;i<n;i++)
 		 {
 			 array[i] = sc.nextInt();		 
