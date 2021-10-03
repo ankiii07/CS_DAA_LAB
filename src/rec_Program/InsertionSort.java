@@ -34,8 +34,7 @@ public class InsertionSort {
 	         array[a] = s.nextInt();
 	      }
 	      insertionSort(array);
-	
-	      // print the sorted array
+	      System.out.println("Sorted Array");
 	      System.out.println(Arrays.toString(array));
 	}
 
